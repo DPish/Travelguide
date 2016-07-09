@@ -1,4 +1,6 @@
 class Travelguide < ActiveRecord::Base
+	has_many :attractions
+
 	def completed?
 		completed_at?
 	end
