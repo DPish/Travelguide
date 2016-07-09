@@ -1,0 +1,37 @@
+<%= link_to "Add a new travelguide", new_travelguide_path %>
+<%= link_to "Add a new attraction", new_attraction_path %>
+
+
+<%= form_tag(travelguides_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Destinations" %>
+    <%= submit_tag "Search", :destination => nil %>
+<% end %>
+
+<ul class>
+<% if @travelguide.present? %>
+  <%= render @travelguide %>
+<% else %>
+  <p>There are no travelguide containing the term(s) <%= params[:search] %>.</p>
+<% end %>
+</ul>
+
+
+<ul class="travelguides">
+	<% @travelguides.each do |travelguide| %>
+		
+			<li class="<%= 'completed' if travelguide.completed? %>">
+
+				<%= travelguide.destination %>
+
+				<% if travelguide.completed? %>
+					<%= button_to "Mark incomplete", travelguide_completion_path(travelguide), method: :delete  %> 
+				<% else %>
+					<%= button_to "Mark complete", travelguide_completion_path(travelguide) %> 
+				<% end %>
+			</li>
+		
+	
+	<% end %>
+</ul>
+
+

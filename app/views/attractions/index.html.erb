@@ -1,0 +1,16 @@
+<%= link_to "Add a new attraction", new_attraction_path %>
+
+<ul class="attractions">
+	<% @attractions.each do |attraction| %>
+		
+			<li>
+
+				<%= attraction.name %>
+
+				
+			</li>
+		
+	
+	<% end %>
+</ul>	
+
