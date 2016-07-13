@@ -17,17 +17,29 @@
 
 
 <ul class="travelguides">
+	
+
 	<% @travelguides.each do |travelguide| %>
 		
 			<li class="<%= 'completed' if travelguide.completed? %>">
 
 				<%= travelguide.destination %>
 
+				<ul>
+              <% travelguide.attractions.each do |attraction| %>
+              <li><%= attraction.name %></li>
+            <% end %>
+          </ul>
+
+
 				<% if travelguide.completed? %>
 					<%= button_to "Mark incomplete", travelguide_completion_path(travelguide), method: :delete  %> 
 				<% else %>
 					<%= button_to "Mark complete", travelguide_completion_path(travelguide) %> 
 				<% end %>
+
+				
+
 			</li>
 		
 	

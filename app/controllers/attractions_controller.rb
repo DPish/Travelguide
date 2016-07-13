@@ -15,8 +15,10 @@ class AttractionsController < ApplicationController
 
 	private
 
+
+
 	def attraction_params
-		params.require(:attraction).permit(:name)
+		params.require(:attraction).permit(:name, :travelguide_id)
 	end
 
 end

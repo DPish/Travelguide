@@ -2,8 +2,8 @@ Rails.application.routes.draw do
 
   root to: "travelguides#index"
   resources :travelguides, only: [:index, :new, :create] do
-  	resource :completion, only: [:create, :destroy]
-	end
+    resource :completion, only: [:create, :destroy]
+  end
 
   resources :attractions, only: [:index, :new, :create]
 

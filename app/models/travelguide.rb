@@ -17,5 +17,7 @@ class Travelguide < ActiveRecord::Base
 	  where("destination LIKE ?", "%#{search}%") 
 	end
 
+	
+
 
 end

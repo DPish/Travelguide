@@ -1,12 +1,18 @@
 class TravelguidesController < ApplicationController
 	before_filter :authenticate
+
+
 	def index
-	  @travelguides = Travelguide.all
+	  
+	  @travelguides =  Travelguide.all	 
+
 	  if params[:search]
 	    @travelguides = Travelguide.search(params[:search]).order("created_at DESC")
 	  else
 	    @travelguides = Travelguide.all.order("created_at DESC")
 	  end
+
+
 	end
 	
 	def new
@@ -19,6 +25,10 @@ class TravelguidesController < ApplicationController
 	end
 
 	private
+	  def set_travelguide
+      @travelguide = Travelguide.find(params[:id])
+    end
+
 
 	def travelguide_params
 		params.require(:travelguide).permit(:destination)
