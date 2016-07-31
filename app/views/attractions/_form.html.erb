@@ -1,0 +1,10 @@
+<%= form_for @attraction do |form| %>
+	<%= form.label :name %>
+	<%= form.text_field :name %><br />
+
+	<%= form.collection_select :travelguide_id, Travelguide.all, :id, :destination, :prompt => "Select a Category" %>
+    or create one:
+    
+	<%= form.submit "Submit" %>
+
+<% end %>
